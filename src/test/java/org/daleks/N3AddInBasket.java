@@ -12,10 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class N2N3AddInBasket {
+public class N3AddInBasket {
 
     @Test
-    public void N2_Add_product_in_basket_check_itself_page () throws InterruptedException {
+    public void N3_Add_product_in_basket_check_in_basket () throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver","C:\\tools\\chromedriver_98.0.4758.80\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -32,15 +32,24 @@ public class N2N3AddInBasket {
             WebElement button_add_to_basket = driver.findElement(By.xpath(
                     "//a[@class='btn-main-sm j-add-to-basket']"));
 
-            Actions actions = new Actions(driver);
-            actions.moveToElement(first_card_product).click(button_add_to_basket).release().build().perform();
+            String str1 = driver.findElement(By.xpath("(//span[contains(@class,'goods-name')])[1]")).getText();
+            System.out.println("1: " + str1);
+
+            Actions actions1 = new Actions(driver);
+            actions1.moveToElement(first_card_product).click(button_add_to_basket).release().build().perform();
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                    "//a[@class='btn-main-sm j-add-to-basket active']")));
+                    "//a[contains(@class,'btn-main-sm j-add-to-basket active')]")));
 
-            String str_in_basket = button_add_to_basket.getText();
-            System.out.println(str_in_basket);
-            Assert.assertEquals(str_in_basket, "В корзине");
+            driver.navigate().to("https://www.wildberries.ru/lk/basket");
+            Thread.sleep(2000);
+
+            WebElement product_in_basket = driver.findElement(By.xpath(
+                    "(//span[@class='good-info__good-name'])[1]"));
+            String str2 = product_in_basket.getText().replace(",", "");
+            System.out.println("2: " + str2);
+
+            Assert.assertEquals(str1, str2);
 
         }
         catch (InterruptedException e) {
