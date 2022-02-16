@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class N5Sorter {
 
     @Test
-    public void N6_Sorter_product () throws InterruptedException {
+    public void N5_Sorter_product () throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver","C:\\tools\\chromedriver_98.0.4758.80\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
@@ -22,7 +22,7 @@ public class N5Sorter {
             ///WebElement brand = driver.findElement(By.xpath("//div[@class='inner-sorter']/div[@href='/catalog/krasota/makiyazh?sort=popular']"));
             WebElement element = driver.findElement(By.xpath(
                     "//div[@id='catalog_sorter']"));
-            //System.out.println(element.getText());
+            System.out.println(element.getText());
             //Assert.assertEquals(element.getText(), "");
 
         }
