@@ -41,7 +41,7 @@ public class N4AddInPostpone {
         }
         finally {
 
-            Thread.sleep(7000);
+            Thread.sleep(1000);
             driver.quit();
 
         }

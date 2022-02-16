@@ -59,7 +59,7 @@ public class N3AddInBasket {
         }
         finally {
 
-            Thread.sleep(7000);
+            Thread.sleep(1000);
             driver.quit();
 
         }

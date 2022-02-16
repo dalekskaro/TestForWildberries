@@ -19,11 +19,9 @@ public class N5Sorter {
             driver.get("https://www.wildberries.ru/catalog/krasota/makiyazh");
             Thread.sleep(2000);
 
-            ///WebElement brand = driver.findElement(By.xpath("//div[@class='inner-sorter']/div[@href='/catalog/krasota/makiyazh?sort=popular']"));
             WebElement element = driver.findElement(By.xpath(
                     "//div[@id='catalog_sorter']"));
             System.out.println(element.getText());
-            //Assert.assertEquals(element.getText(), "");
 
         }
         catch (InterruptedException e) {
@@ -33,7 +31,7 @@ public class N5Sorter {
         }
         finally {
 
-            Thread.sleep(7000);
+            Thread.sleep(1000);
             driver.quit();
 
         }

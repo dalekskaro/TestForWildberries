@@ -29,7 +29,7 @@ public class N6ProductCount {
 
         } finally {
 
-            Thread.sleep(7000);
+            Thread.sleep(1000);
             driver.quit();
 
         }

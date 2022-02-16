@@ -20,13 +20,6 @@ public class N1Filters {
             driver.get("https://www.wildberries.ru/catalog/krasota/makiyazh");
             Thread.sleep(2000);
 
-            /*WebElement element = driver.findElement(By.xpath(
-                    "//div[@data-filter-name='fbrand']/div[@class='filter__title j-b-city-dropdown j-filter-title']"));
-            String str = element.getText();
-            String actual = str_actual;
-            System.out.println(str);
-            Assert.assertEquals(str, actual); */
-
             WebElement brand = driver.findElement(By.xpath(
                     "//div[@data-filter-name='fbrand']/div[@class='filter__title j-b-city-dropdown j-filter-title']"));
             String str_brand = brand.getText();
@@ -54,7 +47,7 @@ public class N1Filters {
         }
         finally {
 
-            Thread.sleep(7000);
+            Thread.sleep(1000);
             driver.quit();
 
         }

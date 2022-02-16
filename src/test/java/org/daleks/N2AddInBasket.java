@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class N2N3AddInBasket {
+public class N2AddInBasket {
 
     @Test
     public void N2_Add_product_in_basket_check_itself_page () throws InterruptedException {
@@ -32,11 +32,11 @@ public class N2N3AddInBasket {
             WebElement button_add_to_basket = driver.findElement(By.xpath(
                     "//a[@class='btn-main-sm j-add-to-basket']"));
 
-            Actions actions = new Actions(driver);
-            actions.moveToElement(first_card_product).click(button_add_to_basket).release().build().perform();
+            Actions actions1 = new Actions(driver);
+            actions1.moveToElement(first_card_product).click(button_add_to_basket).release().build().perform();
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(
-                    "//a[@class='btn-main-sm j-add-to-basket active']")));
+                    "//a[contains(@class,'btn-main-sm j-add-to-basket active')]")));
 
             String str_in_basket = button_add_to_basket.getText();
             System.out.println(str_in_basket);
@@ -50,7 +50,7 @@ public class N2N3AddInBasket {
         }
         finally {
 
-            Thread.sleep(7000);
+            Thread.sleep(1000);
             driver.quit();
 
         }
