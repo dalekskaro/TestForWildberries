@@ -34,7 +34,7 @@ class AllTest {
     @AfterEach
     void teardown() throws InterruptedException {
         Thread.sleep(7000);
-        //driver.quit();
+        driver.quit();
     }
 
     @Test
