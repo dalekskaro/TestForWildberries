@@ -12,6 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -39,7 +40,10 @@ class AllTest {
 
     @Test
     void productHaveFilters1() {
-        driver.get("https://www.wildberries.ru/catalog/krasota/makiyazh");
+
+        CatalogPage catalogPage = PageFactory.initElements(driver, CatalogPage.class);
+
+        catalogPage.openCatalog();
 
         WebElement brand = driver.findElement(By.xpath(
                 "//div[@data-filter-name='fbrand']/div[@class='filter__title j-b-city-dropdown j-filter-title']"));
