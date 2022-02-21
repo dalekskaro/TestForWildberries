@@ -50,12 +50,35 @@ public class CatalogPage {
     @FindBy(xpath = "//span[@class='goods-count']/span[@data-link='html{spaceFormatted:model.pagerModel.pagingInfo.totalItems}']")
     private WebElement productCount;
 
+    @FindBy(xpath = "//div[@id='catalog-content']/div[@class='product-card-list']")
+    private WebElement cardList;
+
+    @FindBy(xpath = "//div[@class='product-card-list']/div[@data-card-index='3']")
+    private WebElement thirdCardProduct;
+
+    @FindBy(xpath = "//div[@class= 'product-card__brand-name']")
+    private WebElement nameProduct;
+
     public void openCatalog() {
         driver.get("https://www.wildberries.ru/catalog/krasota/makiyazh");
     }
 
     public void navigateCatalog(){
         driver.navigate().to("https://www.wildberries.ru/catalog/krasota/makiyazh");
+    }
+
+    public String nameProductText() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(nameFirstProduct));
+        String nameProductText = nameFirstProduct.getText();
+        return nameProductText;
+    }
+
+    public String getCardListText() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(cardList));
+        String cardListText = cardList.getText();
+        return cardListText;
     }
 
     public String getFilterBrandText() {
